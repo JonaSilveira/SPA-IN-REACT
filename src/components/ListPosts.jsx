@@ -6,15 +6,16 @@ const ListPost = ({url}) =>{
     const [posts, setPosts] = useState([])
 
     useEffect(()=>{
+        console.log(url)
         busca(url, setPosts)
-    },[]);
+    },[posts]);
     return(
-        <section className = 'posts container'>
+        <section className = 'posts container'> 
             {
                 posts.map((post)=>(
                     <Link className={`cartao-post cartao-post--${post.categoria}`} to={`/post/${post.id}`}>
                         <article key={post.id}>
-                            <h3 className="cartao-post__titulo">
+                            <h3 className="cartao-post__titulo"> 
                                 {post.title}
                             </h3>
                             <p className='cartao-post__meta'>{post.metadescription}</p>
